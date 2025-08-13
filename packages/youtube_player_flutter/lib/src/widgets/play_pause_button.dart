@@ -121,6 +121,7 @@ class _PlayPauseButtonState extends State<PlayPauseButton>
   }
 
   bool _showPlayPause(PlayerState state) {
+    if (state == PlayerState.buffering) return false;
     return (!_controller.flags.autoPlay && _controller.value.isReady) ||
         state == PlayerState.playing ||
         state == PlayerState.paused;
